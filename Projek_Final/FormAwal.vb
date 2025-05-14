@@ -13,8 +13,8 @@ Public Class FormAwal
 
         namaList.Add(tbPemain1.Text)
         namaList.Add(tbPemain2.Text)
-        If total >= 3 Then namaList.Add(tbPemain4.Text)
-        If total = 4 Then namaList.Add(tbPemain3.Text)
+        If total >= 3 Then namaList.Add(tbPemain3.Text)
+        If total = 4 Then namaList.Add(tbPemain4.Text)
 
         ' Set the global variables
         Pemain = namaList.ToArray()

@@ -120,10 +120,16 @@
         End Set
     End Property
 
-    ReadOnly Property JumlahSelesai() As Integer
+    ' Add this property to the _Pemain class
+
+
+    Property JumlahSelesai() As Integer
         Get
             Return _jumlahSelesai
         End Get
+        Set(ByVal value As Integer)
+            _jumlahSelesai = value
+        End Set
     End Property
 
     Property Image() As Image
@@ -136,10 +142,13 @@
         End Set
     End Property
 
+
+
     Private Sub _setImage()
         For j As Integer = 0 To 3
             Pion(j).Image = _gambar
         Next
     End Sub
+
 
 End Class
