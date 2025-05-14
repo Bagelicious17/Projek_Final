@@ -1,0 +1,71 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Projek_Final
+</name>
+</assembly>
+<members>
+<member name="T:Projek_Final.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources._360_F_94642486_eISVocQwYVqM7cZJ3QTlTCxUJ6K0You2">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources._loop">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources._String">
+<summary>
+  Looks up a localized string similar to .
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources.halUtama">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources.ludo_board_game_template_600323_2766">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources.ludo_boardd">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources.mainMenu">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources.Merah">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources.WhatsApp_Image_2025_04_22_at_09_18_25_48109588">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,327 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\formutama.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\formutama.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\formutama.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\formutama.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\formawal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\formawal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\formawal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\formawal.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\formawalbgt.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\formawalbgt.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Projek_Final||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\my project\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\my project\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\langkah.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\langkah.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\setting.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\setting.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\formawalbgt.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\formawalbgt.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\form2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\form2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\pion.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\pion.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\pemain.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\pemain.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\ludo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\ludo.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ASUS\\AppData\\Local\\Temp\\.vsdbgsrc\\0023a6af74033180253ab1511869aa7b7176eeaca0947ed401680e8721053094\\Control.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\form2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\form2.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\projek_final\\my project\\application.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|solutionrelative:projek_final\\my project\\application.designer.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B93AECA-2282-47C7-879B-E5495015E519}|Projek_Final\\Projek_Final.vbproj|d:\\kuliah\\sem4\\pemrograman dekstop\\projek_final\\projek_final\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|8998e48e-b89a-4034-b66e-353d8c1fdc2e"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 21,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Control.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\AppData\\Local\\Temp\\.vsdbgsrc\\0023a6af74033180253ab1511869aa7b7176eeaca0947ed401680e8721053094\\Control.cs",
+              "ToolTip": "C:\\Users\\ASUS\\AppData\\Local\\Temp\\.vsdbgsrc\\0023a6af74033180253ab1511869aa7b7176eeaca0947ed401680e8721053094\\Control.cs",
+              "ViewState": "AgIAAGMoAAAAAAAAAAAlwCEtAAACAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T11:55:11.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Projek_Final",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Projek_Final.vbproj",
+              "RelativeDocumentMoniker": "Projek_Final\\Projek_Final.vbproj",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Projek_Final.vbproj",
+              "RelativeToolTip": "Projek_Final\\Projek_Final.vbproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-11T08:59:28.172Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "FormAwalBgt.vb",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormAwalBgt.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\FormAwalBgt.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormAwalBgt.vb",
+              "RelativeToolTip": "Projek_Final\\FormAwalBgt.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-22T02:39:08.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormAwalBgt.vb [Design]",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormAwalBgt.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\FormAwalBgt.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormAwalBgt.vb [Design]",
+              "RelativeToolTip": "Projek_Final\\FormAwalBgt.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-22T02:35:05.612Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "app.manifest",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\My Project\\app.manifest",
+              "RelativeDocumentMoniker": "Projek_Final\\My Project\\app.manifest",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\My Project\\app.manifest",
+              "RelativeToolTip": "Projek_Final\\My Project\\app.manifest",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
+              "WhenOpened": "2025-04-21T13:44:53.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Pemain.vb",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Pemain.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\Pemain.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Pemain.vb",
+              "RelativeToolTip": "Projek_Final\\Pemain.vb",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAiwAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-21T12:51:14.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Ludo.vb",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Ludo.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\Ludo.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Ludo.vb",
+              "RelativeToolTip": "Projek_Final\\Ludo.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-21T12:49:11.998Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Application.Designer.vb",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\My Project\\Application.Designer.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\My Project\\Application.Designer.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\My Project\\Application.Designer.vb",
+              "RelativeToolTip": "Projek_Final\\My Project\\Application.Designer.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-18T04:30:34.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormAwal.vb [Design]",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormAwal.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\FormAwal.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormAwal.vb [Design]",
+              "RelativeToolTip": "Projek_Final\\FormAwal.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-18T02:54:02.887Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormAwal.vb",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormAwal.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\FormAwal.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormAwal.vb",
+              "RelativeToolTip": "Projek_Final\\FormAwal.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-18T04:16:19.165Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Pion.vb",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Pion.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\Pion.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Pion.vb",
+              "RelativeToolTip": "Projek_Final\\Pion.vb",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAcwF8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-18T02:33:34.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "setting.vb",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\setting.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\setting.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\setting.vb",
+              "RelativeToolTip": "Projek_Final\\setting.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFkAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-18T02:15:55.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Form2.vb",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Form2.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\Form2.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Form2.vb",
+              "RelativeToolTip": "Projek_Final\\Form2.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-17T07:15:40.276Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Form2.vb [Design]",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Form2.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\Form2.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\Form2.vb [Design]",
+              "RelativeToolTip": "Projek_Final\\Form2.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-17T07:14:44.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "langkah.vb",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\langkah.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\langkah.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\langkah.vb",
+              "RelativeToolTip": "Projek_Final\\langkah.vb",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBYAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-04-21T11:48:20.958Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FormUtama.vb [Design]",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormUtama.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\FormUtama.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormUtama.vb [Design]",
+              "RelativeToolTip": "Projek_Final\\FormUtama.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-03-11T08:40:45.18Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormUtama.vb",
+              "DocumentMoniker": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormUtama.vb",
+              "RelativeDocumentMoniker": "Projek_Final\\FormUtama.vb",
+              "ToolTip": "D:\\Kuliah\\Sem4\\Pemrograman Dekstop\\Projek_Final\\Projek_Final\\FormUtama.vb",
+              "RelativeToolTip": "Projek_Final\\FormUtama.vb",
+              "ViewState": "AgIAAM4BAAAAAAAAAAAuwJ8AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2025-03-11T09:02:59.62Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
