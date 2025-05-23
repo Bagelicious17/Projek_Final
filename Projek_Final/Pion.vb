@@ -51,9 +51,6 @@
         Next
         _posisi = Math.Min(_posisi + langkah, _jalan.Length - 1)
         _lokasi = _jalan(_posisi)
-        If _posisi >= _jalan.Length - 1 Then
-            Status = enumStatus.dalam ' Reached home
-        End If
     End Sub
 
     Property Pion() As PictureBox

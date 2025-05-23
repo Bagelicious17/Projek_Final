@@ -20,7 +20,7 @@ Public Class FormUtama
             pbDadu.Image = imglistDadu.Images(x - 1) ' Subtract 1 since array is 0-based
             System.Threading.Thread.Sleep(50) ' Increase delay for better visibility
         Next
-        HasilDadu = x
+        HasilDadu = 2
     End Sub
 
     Function giliran(ByVal i As Integer) As String
@@ -38,6 +38,27 @@ Public Class FormUtama
         Return warna
     End Function
     Private Sub btnAcak_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAcak.Click
+        ' First check if the current player has already won
+        If winners.Contains(GiliranPermain) Then
+            ' Find next active player
+            Dim nextPlayer As Integer = FindNextActivePlayer(GiliranPermain)
+            If nextPlayer <> -1 Then
+                GiliranPermain = nextPlayer
+                txtInformasi.Text = "Pemain " & giliran(GiliranPermain) & " sudah menang!" & vbCrLf &
+                                   "Giliran beralih ke Pemain " & giliran(nextPlayer)
+                GiliranSelesai()
+            Else
+                ' No more active players, show final rankings
+                ShowFinalRankings()
+                btnAcak.Enabled = False
+                For Each pionBox In {Pion1, Pion2, Pion3, Pion4, Pion5, Pion6, Pion7, Pion8,
+                                     Pion9, Pion10, Pion11, Pion12, Pion13, Pion14, Pion15, Pion16}
+                    pionBox.Enabled = False
+                Next
+            End If
+            Return
+        End If
+
         If GiliranMulaiAtauTidak = enumGiliranMulaiAtauSelesai.Selesai Then
             acakDadu()
             If StatusPemain(GiliranPermain) = enumStatus.awal Then
@@ -55,6 +76,42 @@ Public Class FormUtama
             End If
         End If
     End Sub
+
+    ' Add new helper method to find next active player
+    Private Function FindNextActivePlayer(currentPlayer As Integer) As Integer
+        ' Create list of active players (those who haven't won and have movable pieces)
+        Dim activePlayers As New List(Of Integer)
+        For i As Integer = 0 To JumlahPemain - 1
+            If Not winners.Contains(i) Then
+                ' Check if player has any movable pieces
+                Dim hasMovablePieces As Boolean = False
+                For j As Integer = 0 To 3
+                    If ludo.Pemain(i).Pion(j).Status = _Pion.enumStatus.keluar Then
+                        hasMovablePieces = True
+                        Exit For
+                    End If
+                Next
+                If hasMovablePieces Then
+                    activePlayers.Add(i)
+                End If
+            End If
+        Next
+
+        ' If no active players left, return -1
+        If activePlayers.Count = 0 Then
+            Return -1
+        End If
+
+        ' Find current player's index in active players list
+        Dim currentIndex As Integer = activePlayers.IndexOf(currentPlayer)
+        If currentIndex = -1 Then
+            ' Current player not in active list, return first active player
+            Return activePlayers(0)
+        End If
+
+        ' Return next active player
+        Return activePlayers((currentIndex + 1) Mod activePlayers.Count)
+    End Function
 
     Private Sub FormUtama_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
@@ -440,122 +497,226 @@ Public Class FormUtama
     End Sub
 
     Sub JalankanBidak(ByVal pct As PictureBox, ByVal noPemain As Integer, ByVal noBidak As Integer)
-        If GiliranMulaiAtauTidak = enumGiliranMulaiAtauSelesai.Mulai Then
-            If noPemain = GiliranPermain Then
-                If ludo.Pemain(noPemain).Pion(noBidak).Status = _Pion.enumStatus.kurung Then
-                    If HasilDadu = 6 Then
-                        ludo.Pemain(noPemain).Pion(noBidak).Keluar()
-                        StatusPemain(noPemain) = enumStatus.pernahKeluar
-                        GiliranNext()
-                        txtInformasi.Text = "Giliran Pemain " & giliran(GiliranPermain)
-                        GiliranSelesai()
-                    End If
-                ElseIf ludo.Pemain(noPemain).Pion(noBidak).Status = _Pion.enumStatus.keluar Then
-                    Dim pion = ludo.Pemain(noPemain).Pion(noBidak)
-                    Dim currentStep = pion.Posisi
-                    Dim totalSteps = pion.Langkah.Length
-
-                    ' Check if piece is on winning path
-                    Dim isOnWinningPath As Boolean = False
-                    Select Case noPemain
-                        Case 0
-                            isOnWinningPath = (pion.Langkah Is LangkahMenangBiru)
-                        Case 1
-                            isOnWinningPath = (pion.Langkah Is LangkahMenangMerah)
-                        Case 2
-                            isOnWinningPath = (pion.Langkah Is LangkahMenangHijau)
-                        Case 3
-                            isOnWinningPath = (pion.Langkah Is LangkahMenangKuning)
-                    End Select
-
-                    If isOnWinningPath Then
-                        ' On winning path - check remaining steps to goal
-                        Dim goalIndex As Integer = 6  ' Each winning path has 7 steps (0-6)
-                        Dim remainingSteps As Integer = goalIndex - currentStep
-
-                        ' If dice number is greater than remaining steps, can't move
-                        If HasilDadu > remainingSteps Then
-                            txtInformasi.Text = "Dadu terlalu besar! Butuh " & remainingSteps & " untuk mencapai finish"
-                            GiliranNext()
-                            txtInformasi.Text &= vbCrLf & "Giliran Pemain " & giliran(GiliranPermain)
-                            GiliranSelesai()
-                            Return
-                        End If
-
-                        ' Move piece if steps are valid
-                        pion.Jalankan(HasilDadu)
-
-                        ' Check if reached goal
-                        If pion.Posisi = goalIndex Then
-                            pion.Status = _Pion.enumStatus.dalam
-                            ludo.Pemain(noPemain).JumlahSelesai += 1
-
-                            ' Check if player has won (all pieces home)
-                            If ludo.Pemain(noPemain).JumlahSelesai = 4 Then
-                                HandlePlayerWin(noPemain)
-                            End If
-                        End If
-                    Else
-                        ' On normal path - check if should switch to winning path
-                        If currentStep + HasilDadu >= totalSteps Then
-                            ' Calculate how many steps into winning path
-                            Dim stepsIntoWinningPath = (currentStep + HasilDadu) - totalSteps
-
-                            ' Switch to winning path
-                            Select Case noPemain
-                                Case 0
-                                    pion.Langkah = LangkahMenangBiru
-                                Case 1
-                                    pion.Langkah = LangkahMenangMerah
-                                Case 2
-                                    pion.Langkah = LangkahMenangHijau
-                                Case 3
-                                    pion.Langkah = LangkahMenangKuning
-                            End Select
-
-                            ' Reset position to start of winning path
-                            pion.Posisi = 0
-                            pion.Lokasi = pion.Langkah(0)
-                            pion.Pion.Location = pion.Langkah(0)
-
-                            ' Move the calculated steps on winning path
-                            If stepsIntoWinningPath > 0 Then
-                                pion.Jalankan(stepsIntoWinningPath)
-
-                                ' Check if reached goal
-                                If pion.Posisi = 6 Then
-                                    pion.Status = _Pion.enumStatus.dalam
-                                    ludo.Pemain(noPemain).JumlahSelesai += 1
-
-                                    ' Check if player has won (all pieces home)
-                                    If ludo.Pemain(noPemain).JumlahSelesai = 4 Then
-                                        HandlePlayerWin(noPemain)
-                                    End If
-                                End If
-                            End If
-                        Else
-                            ' Normal movement
-                            pion.Jalankan(HasilDadu)
-                        End If
-                    End If
-
-                    ' Check for collisions after movement
-                    CheckCollisions(Nothing, Nothing)
-
-                    ' Only advance turn if no collision occurred and it's still the same player's turn
-                    If StatusPemain(GiliranPermain) <> enumStatus.awal AndAlso GiliranPermain = noPemain Then
-                        GiliranNext()
-                        txtInformasi.Text = "Giliran Pemain " & giliran(GiliranPermain)
-                        GiliranSelesai()
-                    End If
-                ElseIf ludo.Pemain(noPemain).Pion(noBidak).Status = _Pion.enumStatus.dalam Then
-                    MsgBox("Bidak Sudah Aman!")
-                End If
+        ' First check if the player has already won
+        If winners.Contains(noPemain) Then
+            ' Find next active player
+            Dim nextPlayer As Integer = FindNextActivePlayer(noPemain)
+            If nextPlayer <> -1 Then
+                GiliranPermain = nextPlayer
+                txtInformasi.Text = "Pemain " & giliran(noPemain) & " sudah menang!" & vbCrLf &
+                                   "Giliran beralih ke Pemain " & giliran(nextPlayer)
+                GiliranSelesai()
             Else
-                txtInformasi.Text = "Maaf Bukan Giliran Pemain Ini" & vbCrLf & "Giliran Pemain " & giliran(GiliranPermain)
+                ' No more active players, show final rankings
+                ShowFinalRankings()
+                btnAcak.Enabled = False
+                For Each pionBox In {Pion1, Pion2, Pion3, Pion4, Pion5, Pion6, Pion7, Pion8,
+                                     Pion9, Pion10, Pion11, Pion12, Pion13, Pion14, Pion15, Pion16}
+                    pionBox.Enabled = False
+                Next
+            End If
+            Return
+        End If
+
+        ' Check if it's the current player's turn
+        If noPemain <> GiliranPermain Then
+            txtInformasi.Text = "Maaf Bukan Giliran Pemain Ini" & vbCrLf & "Giliran Pemain " & giliran(GiliranPermain)
+            Return
+        End If
+
+        ' Check if turn has started
+        If GiliranMulaiAtauTidak <> enumGiliranMulaiAtauSelesai.Mulai Then
+            txtInformasi.Text = "Maaf Belum Mulai Giliran" & vbCrLf & "Giliran Pemain " & giliran(GiliranPermain)
+            Return
+        End If
+
+        ' Handle piece movement based on status
+        Dim pion = ludo.Pemain(noPemain).Pion(noBidak)
+        Select Case pion.Status
+            Case _Pion.enumStatus.kurung
+                If HasilDadu = 6 Then
+                    pion.Keluar()
+                    StatusPemain(noPemain) = enumStatus.pernahKeluar
+                    GiliranNext()
+                    txtInformasi.Text = "Giliran Pemain " & giliran(GiliranPermain)
+                    GiliranSelesai()
+                End If
+
+            Case _Pion.enumStatus.keluar
+                HandlePieceMovement(noPemain, noBidak)
+
+            Case _Pion.enumStatus.dalam
+                ' Check if player has any other pieces that can still move
+                Dim hasMovablePieces As Boolean = False
+                For i As Integer = 0 To 3
+                    If ludo.Pemain(noPemain).Pion(i).Status = _Pion.enumStatus.keluar Then
+                        hasMovablePieces = True
+                        Exit For
+                    End If
+                Next
+
+                If hasMovablePieces Then
+                    txtInformasi.Text = "Bidak sudah aman! Silakan pilih bidak lain atau acak dadu lagi"
+                Else
+                    ' If no movable pieces left, move to next player
+                    GiliranNext()
+                    txtInformasi.Text = "Semua bidak sudah aman! Giliran Pemain " & giliran(GiliranPermain)
+                    GiliranSelesai()
+                End If
+        End Select
+    End Sub
+
+    ' New helper method to handle piece movement logic
+    Private Sub HandlePieceMovement(noPemain As Integer, noBidak As Integer)
+        ' Get the piece reference first
+        Dim pion = ludo.Pemain(noPemain).Pion(noBidak)
+        Dim currentStep = pion.Posisi
+        Dim totalSteps = pion.Langkah.Length
+
+        ' Check if piece is on winning path
+        Dim isOnWinningPath As Boolean = False
+        Select Case noPemain
+            Case 0
+                isOnWinningPath = (pion.Langkah Is LangkahMenangBiru)
+            Case 1
+                isOnWinningPath = (pion.Langkah Is LangkahMenangMerah)
+            Case 2
+                isOnWinningPath = (pion.Langkah Is LangkahMenangHijau)
+            Case 3
+                isOnWinningPath = (pion.Langkah Is LangkahMenangKuning)
+        End Select
+
+        ' Handle movement based on path type
+        If isOnWinningPath Then
+            HandleWinningPathMovement(noPemain, noBidak)
+        Else
+            HandleNormalPathMovement(noPemain, noBidak)
+        End If
+
+        ' Check for collisions after movement
+        CheckCollisions(Nothing, Nothing)
+
+        ' Only advance turn if no collision occurred and it's still the same player's turn
+        If StatusPemain(GiliranPermain) <> enumStatus.awal AndAlso
+           GiliranPermain = noPemain AndAlso
+           pion.Status <> _Pion.enumStatus.dalam Then
+            GiliranNext()
+            txtInformasi.Text = "Giliran Pemain " & giliran(GiliranPermain)
+            GiliranSelesai()
+        End If
+    End Sub
+
+    ' New helper method to handle movement on winning path
+    Private Sub HandleWinningPathMovement(noPemain As Integer, noBidak As Integer)
+        Dim pion = ludo.Pemain(noPemain).Pion(noBidak)
+        Dim currentStep = pion.Posisi
+        Dim goalIndex As Integer = 6  ' Each winning path has 7 steps (0-6)
+        Dim remainingSteps As Integer = goalIndex - currentStep
+
+        If HasilDadu > remainingSteps Then
+            txtInformasi.Text = "Dadu terlalu besar! Butuh " & remainingSteps & " untuk mencapai finish"
+            GiliranNext()
+            txtInformasi.Text &= vbCrLf & "Giliran Pemain " & giliran(GiliranPermain)
+            GiliranSelesai()
+            Return
+        End If
+
+        ' Move the piece
+        pion.Jalankan(HasilDadu)
+
+        ' Only set status to dalam if the piece has reached the exact end of the winning path
+        If pion.Posisi = goalIndex AndAlso pion.Lokasi = pion.Langkah(goalIndex) Then
+            pion.Status = _Pion.enumStatus.dalam
+            ludo.Pemain(noPemain).JumlahSelesai += 1
+
+            If ludo.Pemain(noPemain).JumlahSelesai = 4 Then
+                HandlePlayerWin(noPemain)
+            Else
+                GiliranNext()
+                txtInformasi.Text = "Bidak telah aman! Giliran Pemain " & giliran(GiliranPermain)
+                GiliranSelesai()
             End If
         Else
-            txtInformasi.Text = "Maaf Belum Mulai Giliran" & vbCrLf & "Giliran Pemain " & giliran(GiliranPermain)
+            ' If not finished, allow next move or next player
+            GiliranNext()
+            txtInformasi.Text = "Giliran Pemain " & giliran(GiliranPermain)
+            GiliranSelesai()
+        End If
+    End Sub
+
+    ' New helper method to handle movement on normal path
+    Private Sub HandleNormalPathMovement(noPemain As Integer, noBidak As Integer)
+        Dim pion = ludo.Pemain(noPemain).Pion(noBidak)
+        Dim currentStep = pion.Posisi
+        Dim totalSteps = pion.Langkah.Length
+
+        ' Check if the piece will reach or exceed the end of regular path
+        If currentStep + HasilDadu >= totalSteps Then
+            ' Calculate remaining steps after reaching end of regular path
+            Dim remainingSteps = (currentStep + HasilDadu) - totalSteps
+
+            ' First move to the end of regular path
+            Dim stepsToEnd = totalSteps - currentStep
+            pion.Jalankan(stepsToEnd)
+
+            ' Switch to winning path
+            Select Case noPemain
+                Case 0
+                    pion.Langkah = LangkahMenangBiru
+                Case 1
+                    pion.Langkah = LangkahMenangMerah
+                Case 2
+                    pion.Langkah = LangkahMenangHijau
+                Case 3
+                    pion.Langkah = LangkahMenangKuning
+            End Select
+
+            ' Reset position to start of winning path
+            pion.Posisi = 0
+            pion.Lokasi = pion.Langkah(0)
+            pion.Pion.Location = pion.Langkah(0)
+
+            ' Move remaining steps on winning path
+            If remainingSteps > 0 Then
+                pion.Jalankan(remainingSteps)
+
+                ' Check if piece reached the end of winning path
+                If pion.Posisi = 6 AndAlso pion.Lokasi = pion.Langkah(6) Then
+                    pion.Status = _Pion.enumStatus.dalam
+                    ludo.Pemain(noPemain).JumlahSelesai += 1
+
+                    If ludo.Pemain(noPemain).JumlahSelesai = 4 Then
+                        HandlePlayerWin(noPemain)
+                    Else
+                        GiliranNext()
+                        txtInformasi.Text = "Bidak telah aman! Giliran Pemain " & giliran(GiliranPermain)
+                        GiliranSelesai()
+                    End If
+                Else
+                    ' If not finished, end turn
+                    GiliranNext()
+                    txtInformasi.Text = "Giliran Pemain " & giliran(GiliranPermain)
+                    GiliranSelesai()
+                End If
+            Else
+                ' If no remaining steps, just end turn
+                GiliranNext()
+                txtInformasi.Text = "Bidak masuk ke jalur menang! Giliran Pemain " & giliran(GiliranPermain)
+                GiliranSelesai()
+            End If
+        Else
+            ' If not reaching the end of regular path, just move normally
+            Try
+                pion.Jalankan(HasilDadu)
+                GiliranNext()
+                txtInformasi.Text = "Giliran Pemain " & giliran(GiliranPermain)
+                GiliranSelesai()
+            Catch ex As Exception
+                txtInformasi.Text = "Terjadi kesalahan saat bergerak. Giliran berakhir."
+                GiliranNext()
+                txtInformasi.Text &= vbCrLf & "Giliran Pemain " & giliran(GiliranPermain)
+                GiliranSelesai()
+            End Try
         End If
     End Sub
 
@@ -565,37 +726,61 @@ Public Class FormUtama
         If Not winners.Contains(playerIndex) Then
             winners.Add(playerIndex)
 
-            ' Update rankings display
-            UpdateRankingsDisplay()
+            ' Set all pieces of winning player to kurung status
+            For i As Integer = 0 To 3
+                ludo.Pemain(playerIndex).Pion(i).Status = _Pion.enumStatus.kurung
+            Next
 
-            ' Check if game should end (only one player left)
+            ' Count active players (those who haven't won yet)
             Dim activePlayers As Integer = 0
+            Dim activePlayerList As New List(Of Integer)
+
             For i As Integer = 0 To JumlahPemain - 1
                 If Not winners.Contains(i) Then
                     activePlayers += 1
+                    activePlayerList.Add(i)
                 End If
             Next
 
-            If activePlayers <= 1 Then
-                ' Game is over, show final rankings
+            ' Check how many players are still playing
+            If activePlayers >= 2 Then
+                ' Game continues - switch turn to next active player
+                Dim nextPlayer As Integer = FindNextActivePlayer(playerIndex)
+                If nextPlayer <> -1 Then
+                    GiliranPermain = nextPlayer
+                    GiliranSelesai()
+                    txtInformasi.Text = "Pemain " & giliran(playerIndex) & " telah menang!" & vbCrLf & vbCrLf &
+                                       "Giliran Pemain " & giliran(nextPlayer)
+                End If
+            Else
+                ' Game ends - only 1 or 0 players left
+                If activePlayers = 1 Then
+                    ' Add last remaining player to winners list
+                    Dim lastPlayer As Integer = activePlayerList(0)
+                    winners.Add(lastPlayer)
+
+                    ' Set all pieces of last player to kurung status
+                    For i As Integer = 0 To 3
+                        ludo.Pemain(lastPlayer).Pion(i).Status = _Pion.enumStatus.kurung
+                    Next
+                End If
+
+                ' Show final rankings and end game
                 ShowFinalRankings()
+
+                ' Disable game controls
+                btnAcak.Enabled = False
+                For Each pionBox In {Pion1, Pion2, Pion3, Pion4, Pion5, Pion6, Pion7, Pion8,
+                                     Pion9, Pion10, Pion11, Pion12, Pion13, Pion14, Pion15, Pion16}
+                    pionBox.Enabled = False
+                Next
             End If
         End If
     End Sub
     ' Add new fields to track winners and rankings
     Private winners As New List(Of Integer)
 
-    ' Add new method to update rankings display
-    Private Sub UpdateRankingsDisplay()
-        Dim rankingText As String = "Ranking Saat Ini:" & vbCrLf & vbCrLf
-        For i As Integer = 0 To winners.Count - 1
-            Dim playerIndex As Integer = winners(i)
-            rankingText &= (i + 1) & ". " & Pemain(playerIndex) & " (" & giliran(playerIndex) & ")" & vbCrLf
-        Next
-        txtInformasi.Text = rankingText
-    End Sub
-
-    ' Add new method to show final rankings
+    ' Update ShowFinalRankings to be more focused on just showing the final results
     Private Sub ShowFinalRankings()
         Dim finalText As String = "=== PERMAINAN SELESAI ===" & vbCrLf & vbCrLf
         finalText &= "Hasil Akhir:" & vbCrLf & vbCrLf
@@ -606,21 +791,7 @@ Public Class FormUtama
             finalText &= (i + 1) & ". " & Pemain(playerIndex) & " (" & giliran(playerIndex) & ")" & vbCrLf
         Next
 
-        ' Add remaining players as last place
-        For i As Integer = 0 To JumlahPemain - 1
-            If Not winners.Contains(i) Then
-                finalText &= (winners.Count + 1) & ". " & Pemain(i) & " (" & giliran(i) & ")" & vbCrLf
-            End If
-        Next
-
         txtInformasi.Text = finalText
-
-        ' Disable game controls
-        btnAcak.Enabled = False
-        For Each pion In {Pion1, Pion2, Pion3, Pion4, Pion5, Pion6, Pion7, Pion8,
-                     Pion9, Pion10, Pion11, Pion12, Pion13, Pion14, Pion15, Pion16}
-            pion.Enabled = False
-        Next
     End Sub
 
 End Class
