@@ -30,33 +30,13 @@ Module langkah
     Public langkahKuning() As Point = getLangkah(Jalan, 26)
     Public langkahBiru() As Point = getLangkah(Jalan, 39)
 
-    Public LangkahMenangBiru() As Point = getLangkahMenang(Langkah_Menang, 0)
-    Public LangkahMenangMerah() As Point = getLangkahMenang(Langkah_Menang, 7)
-    Public LangkahMenangHijau() As Point = getLangkahMenang(Langkah_Menang, 14)
-    Public LangkahMenangKuning() As Point = getLangkahMenang(Langkah_Menang, 21)
+    Public LangkahMenangBiru() As Point = {New Point(511, 418), New Point(511, 390), New Point(511, 360), New Point(511, 330), New Point(511, 300), New Point(511, 270), New Point(511, 240)}
+    Public LangkahMenangMerah() As Point = {New Point(301, 178), New Point(301, 211), New Point(331, 211), New Point(361, 211), New Point(391, 211), New Point(421, 211), New Point(451, 211)}
+    Public LangkahMenangHijau() As Point = {New Point(512, 2), New Point(512, 32), New Point(512, 62), New Point(512, 92), New Point(512, 112), New Point(512, 142), New Point(512, 172)}
+    Public LangkahMenangKuning() As Point = {New Point(718, 240), New Point(690, 240), New Point(660, 240), New Point(630, 240), New Point(600, 240), New Point(570, 240), New Point(540, 240)}
 
     Function getLangkah(ByVal pnt As Point(), ByVal posisi As Integer) As Point()
         Const L = 51
-        Dim value() As Point = Nothing
-        Dim j As Integer = 0
-        For i As Integer = posisi To L
-            ReDim Preserve value(j)
-            value(j) = pnt(i)
-            j += 1
-        Next
-
-        If posisi < 2 Then posisi = 2
-        For i As Integer = 0 To posisi - 2
-            ReDim Preserve value(j)
-            value(j) = pnt(i)
-            j += 1
-        Next
-
-        Return value
-    End Function
-
-    Function getLangkahMenang(ByVal pnt As Point(), ByVal posisi As Integer) As Point()
-        Const L = 27
         Dim value() As Point = Nothing
         Dim j As Integer = 0
         For i As Integer = posisi To L

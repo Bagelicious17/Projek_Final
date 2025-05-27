@@ -104,4 +104,6 @@
         _pion.Location = _lokasi
     End Sub
 
+
+
 End Class

@@ -20,7 +20,7 @@ Public Class FormUtama
             pbDadu.Image = imglistDadu.Images(x - 1) ' Subtract 1 since array is 0-based
             System.Threading.Thread.Sleep(50) ' Increase delay for better visibility
         Next
-        HasilDadu = 2
+        HasilDadu = 6
     End Sub
 
     Function giliran(ByVal i As Integer) As String
@@ -79,38 +79,19 @@ Public Class FormUtama
 
     ' Add new helper method to find next active player
     Private Function FindNextActivePlayer(currentPlayer As Integer) As Integer
-        ' Create list of active players (those who haven't won and have movable pieces)
-        Dim activePlayers As New List(Of Integer)
-        For i As Integer = 0 To JumlahPemain - 1
-            If Not winners.Contains(i) Then
+        ' Find next player who hasn't won and has movable pieces
+        For i As Integer = 1 To JumlahPemain - 1
+            Dim nextPlayer = (currentPlayer + i) Mod JumlahPemain
+            If Not winners.Contains(nextPlayer) Then
                 ' Check if player has any movable pieces
-                Dim hasMovablePieces As Boolean = False
                 For j As Integer = 0 To 3
-                    If ludo.Pemain(i).Pion(j).Status = _Pion.enumStatus.keluar Then
-                        hasMovablePieces = True
-                        Exit For
+                    If ludo.Pemain(nextPlayer).Pion(j).Status = _Pion.enumStatus.keluar Then
+                        Return nextPlayer
                     End If
                 Next
-                If hasMovablePieces Then
-                    activePlayers.Add(i)
-                End If
             End If
         Next
-
-        ' If no active players left, return -1
-        If activePlayers.Count = 0 Then
-            Return -1
-        End If
-
-        ' Find current player's index in active players list
-        Dim currentIndex As Integer = activePlayers.IndexOf(currentPlayer)
-        If currentIndex = -1 Then
-            ' Current player not in active list, return first active player
-            Return activePlayers(0)
-        End If
-
-        ' Return next active player
-        Return activePlayers((currentIndex + 1) Mod activePlayers.Count)
+        Return -1 ' No active players found
     End Function
 
     Private Sub FormUtama_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -207,11 +188,12 @@ Public Class FormUtama
     Private Sub CheckCollisions(sender As Object, e As EventArgs)
         collisionPieces.Clear()
 
-        ' First, collect all pieces' positions
+
         For playerIndex As Integer = 0 To 3
             For pieceIndex As Integer = 0 To 3
                 If ludo.Pemain(playerIndex).Pion(pieceIndex).Status = _Pion.enumStatus.keluar Then
                     Dim currentPos As Point = ludo.Pemain(playerIndex).Pion(pieceIndex).Lokasi
+
 
                     If Not collisionPieces.ContainsKey(currentPos) Then
                         collisionPieces.Add(currentPos, New List(Of Tuple(Of Integer, Integer)))
@@ -221,55 +203,23 @@ Public Class FormUtama
             Next
         Next
 
-        ' Check for collisions and handle them
+
         For Each pos In collisionPieces.Keys
             If collisionPieces(pos).Count > 1 Then
-                ' Get the current player's piece at this position
-                Dim currentPlayerPiece As Tuple(Of Integer, Integer) = Nothing
-                Dim otherPieces As New List(Of Tuple(Of Integer, Integer))
 
-                For Each piece In collisionPieces(pos)
-                    If piece.Item1 = GiliranPermain Then
-                        currentPlayerPiece = piece
-                    Else
-                        otherPieces.Add(piece)
-                    End If
+                Dim pieces = collisionPieces(pos)
+
+                For i As Integer = 1 To pieces.Count - 1
+                    Dim playerIndex = pieces(i).Item1
+                    Dim pieceIndex = pieces(i).Item2
+
+
+                    ludo.Pemain(playerIndex).Pion(pieceIndex).Status = _Pion.enumStatus.kurung
+                    ludo.Pemain(playerIndex).Pion(pieceIndex).Lokasi = ludo.PosisiPemain(playerIndex)(pieceIndex)
+                    ludo.Pemain(playerIndex).Pion(pieceIndex).Pion.Location = ludo.PosisiPemain(playerIndex)(pieceIndex)
+
+                    txtInformasi.Text = "Pemain " & giliran(playerIndex) & " kembali ke awal!"
                 Next
-
-                ' If we found the current player's piece and there are other pieces
-                If currentPlayerPiece IsNot Nothing AndAlso otherPieces.Count > 0 Then
-                    ' Send all other pieces home and reset their player's state
-                    For Each piece In otherPieces
-                        Dim playerIndex = piece.Item1
-                        Dim pieceIndex = piece.Item2
-
-                        ' Send the piece home
-                        ludo.Pemain(playerIndex).Pion(pieceIndex).Status = _Pion.enumStatus.kurung
-                        ludo.Pemain(playerIndex).Pion(pieceIndex).Lokasi = ludo.PosisiPemain(playerIndex)(pieceIndex)
-                        ludo.Pemain(playerIndex).Pion(pieceIndex).Pion.Location = ludo.PosisiPemain(playerIndex)(pieceIndex)
-
-                        ' Only reset the status of this specific piece, not the player's overall status
-                        ' This allows other pieces that were already out to continue moving
-                        If StatusPemain(playerIndex) = enumStatus.pernahKeluar Then
-                            ' Check if any other pieces are still out
-                            Dim hasOtherPiecesOut As Boolean = False
-                            For i As Integer = 0 To 3
-                                If i <> pieceIndex AndAlso ludo.Pemain(playerIndex).Pion(i).Status = _Pion.enumStatus.keluar Then
-                                    hasOtherPiecesOut = True
-                                    Exit For
-                                End If
-                            Next
-                            ' Only reset to awal if no other pieces are out
-                            If Not hasOtherPiecesOut Then
-                                StatusPemain(playerIndex) = enumStatus.awal
-                            End If
-                        End If
-                    Next
-
-                    ' Set next turn to the current player (they get another turn after capturing)
-                    GiliranMulaiAtauTidak = enumGiliranMulaiAtauSelesai.Mulai
-                    txtInformasi.Text = "Pemain " & giliran(GiliranPermain) & " dapat giliran lagi setelah menangkap!"
-                End If
             End If
         Next
     End Sub
@@ -731,20 +681,47 @@ Public Class FormUtama
                 ludo.Pemain(playerIndex).Pion(i).Status = _Pion.enumStatus.kurung
             Next
 
-            ' Count active players (those who haven't won yet)
+            ' Count players who can still move (have pieces out and haven't won)
             Dim activePlayers As Integer = 0
-            Dim activePlayerList As New List(Of Integer)
+            Dim lastActivePlayer As Integer = -1
 
             For i As Integer = 0 To JumlahPemain - 1
                 If Not winners.Contains(i) Then
-                    activePlayers += 1
-                    activePlayerList.Add(i)
+                    ' Check if player has any pieces that can move
+                    Dim canMove As Boolean = False
+                    For j As Integer = 0 To 3
+                        If ludo.Pemain(i).Pion(j).Status = _Pion.enumStatus.keluar Then
+                            canMove = True
+                            Exit For
+                        End If
+                    Next
+
+                    If canMove Then
+                        activePlayers += 1
+                        lastActivePlayer = i
+                    End If
                 End If
             Next
 
-            ' Check how many players are still playing
-            If activePlayers >= 2 Then
-                ' Game continues - switch turn to next active player
+            ' If 1 or 0 players can still move, end the game
+            If activePlayers <= 1 Then
+                ' If one player can still move, add them to winners
+                If activePlayers = 1 AndAlso Not winners.Contains(lastActivePlayer) Then
+                    winners.Add(lastActivePlayer)
+                    For i As Integer = 0 To 3
+                        ludo.Pemain(lastActivePlayer).Pion(i).Status = _Pion.enumStatus.kurung
+                    Next
+                End If
+
+                ' End game and show rankings
+                ShowFinalRankings()
+                btnAcak.Enabled = False
+                For Each pionBox In {Pion1, Pion2, Pion3, Pion4, Pion5, Pion6, Pion7, Pion8,
+                                     Pion9, Pion10, Pion11, Pion12, Pion13, Pion14, Pion15, Pion16}
+                    pionBox.Enabled = False
+                Next
+            Else
+                ' Game continues - switch to next active player
                 Dim nextPlayer As Integer = FindNextActivePlayer(playerIndex)
                 If nextPlayer <> -1 Then
                     GiliranPermain = nextPlayer
@@ -752,28 +729,6 @@ Public Class FormUtama
                     txtInformasi.Text = "Pemain " & giliran(playerIndex) & " telah menang!" & vbCrLf & vbCrLf &
                                        "Giliran Pemain " & giliran(nextPlayer)
                 End If
-            Else
-                ' Game ends - only 1 or 0 players left
-                If activePlayers = 1 Then
-                    ' Add last remaining player to winners list
-                    Dim lastPlayer As Integer = activePlayerList(0)
-                    winners.Add(lastPlayer)
-
-                    ' Set all pieces of last player to kurung status
-                    For i As Integer = 0 To 3
-                        ludo.Pemain(lastPlayer).Pion(i).Status = _Pion.enumStatus.kurung
-                    Next
-                End If
-
-                ' Show final rankings and end game
-                ShowFinalRankings()
-
-                ' Disable game controls
-                btnAcak.Enabled = False
-                For Each pionBox In {Pion1, Pion2, Pion3, Pion4, Pion5, Pion6, Pion7, Pion8,
-                                     Pion9, Pion10, Pion11, Pion12, Pion13, Pion14, Pion15, Pion16}
-                    pionBox.Enabled = False
-                Next
             End If
         End If
     End Sub
@@ -785,10 +740,9 @@ Public Class FormUtama
         Dim finalText As String = "=== PERMAINAN SELESAI ===" & vbCrLf & vbCrLf
         finalText &= "Hasil Akhir:" & vbCrLf & vbCrLf
 
-        ' Add winners in order
+        ' Show winners in order they won
         For i As Integer = 0 To winners.Count - 1
-            Dim playerIndex As Integer = winners(i)
-            finalText &= (i + 1) & ". " & Pemain(playerIndex) & " (" & giliran(playerIndex) & ")" & vbCrLf
+            finalText &= (i + 1) & ". " & Pemain(winners(i)) & " (" & giliran(winners(i)) & ")" & vbCrLf
         Next
 
         txtInformasi.Text = finalText
