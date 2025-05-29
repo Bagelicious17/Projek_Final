@@ -188,12 +188,11 @@ Public Class FormUtama
     Private Sub CheckCollisions(sender As Object, e As EventArgs)
         collisionPieces.Clear()
 
-
+        ' First pass: collect all pieces and their positions
         For playerIndex As Integer = 0 To 3
             For pieceIndex As Integer = 0 To 3
                 If ludo.Pemain(playerIndex).Pion(pieceIndex).Status = _Pion.enumStatus.keluar Then
                     Dim currentPos As Point = ludo.Pemain(playerIndex).Pion(pieceIndex).Lokasi
-
 
                     If Not collisionPieces.ContainsKey(currentPos) Then
                         collisionPieces.Add(currentPos, New List(Of Tuple(Of Integer, Integer)))
@@ -203,23 +202,36 @@ Public Class FormUtama
             Next
         Next
 
-
+        ' Second pass: handle collisions
         For Each pos In collisionPieces.Keys
             If collisionPieces(pos).Count > 1 Then
-
                 Dim pieces = collisionPieces(pos)
 
-                For i As Integer = 1 To pieces.Count - 1
-                    Dim playerIndex = pieces(i).Item1
-                    Dim pieceIndex = pieces(i).Item2
-
-
-                    ludo.Pemain(playerIndex).Pion(pieceIndex).Status = _Pion.enumStatus.kurung
-                    ludo.Pemain(playerIndex).Pion(pieceIndex).Lokasi = ludo.PosisiPemain(playerIndex)(pieceIndex)
-                    ludo.Pemain(playerIndex).Pion(pieceIndex).Pion.Location = ludo.PosisiPemain(playerIndex)(pieceIndex)
-
-                    txtInformasi.Text = "Pemain " & giliran(playerIndex) & " kembali ke awal!"
+                ' Find the most recently moved piece (attacker)
+                Dim attackerIndex = -1
+                For i As Integer = 0 To pieces.Count - 1
+                    If pieces(i).Item1 = GiliranPermain Then
+                        attackerIndex = i
+                        Exit For
+                    End If
                 Next
+
+                ' If we found an attacker, send the other piece(s) home
+                If attackerIndex <> -1 Then
+                    For i As Integer = 0 To pieces.Count - 1
+                        If i <> attackerIndex Then  ' Don't send the attacker home
+                            Dim playerIndex = pieces(i).Item1
+                            Dim pieceIndex = pieces(i).Item2
+
+                            ludo.Pemain(playerIndex).Pion(pieceIndex).Status = _Pion.enumStatus.kurung
+                            StatusPemain(playerIndex) = enumStatus.awal
+                            ludo.Pemain(playerIndex).Pion(pieceIndex).Lokasi = ludo.PosisiPemain(playerIndex)(pieceIndex)
+                            ludo.Pemain(playerIndex).Pion(pieceIndex).Pion.Location = ludo.PosisiPemain(playerIndex)(pieceIndex)
+
+                            txtInformasi.Text = "Pemain " & giliran(playerIndex) & " kembali ke awal!"
+                        End If
+                    Next
+                End If
             End If
         Next
     End Sub
