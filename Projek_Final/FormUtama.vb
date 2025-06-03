@@ -19,7 +19,7 @@ Public Class FormUtama
             pbDadu.Image = imglistDadu.Images(x - 1) ' Subtract 1 since array is 0-based
             System.Threading.Thread.Sleep(50) ' Increase delay for better visibility
         Next
-        HasilDadu = x ' Use the final random value instead of hardcoded 6
+        HasilDadu = 6
     End Sub
 
 

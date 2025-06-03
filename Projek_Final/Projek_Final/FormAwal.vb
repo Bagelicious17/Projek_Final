@@ -67,5 +67,28 @@ Public Class FormAwal
         End Select
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        ' Get player names from textboxes
+        Dim total As Integer = Val(cbJmlPemain.Text)
+        Dim namaList As New List(Of String)
 
+        If tbPemain1.Text = "" Or tbPemain2.Text = "" Or (total >= 3 And tbPemain3.Text = "") Or (total = 4 And tbPemain4.Text = "") Then
+            MessageBox.Show("Maaf., Nama Harus Diisi!", "WARNING !!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        namaList.Add(tbPemain1.Text)
+        namaList.Add(tbPemain2.Text)
+        If total >= 3 Then namaList.Add(tbPemain3.Text)
+        If total = 4 Then namaList.Add(tbPemain4.Text)
+
+        ' Set the global variables
+        Pemain = namaList.ToArray()
+        JumlahPemain = total
+
+        ' Show FormUtama
+        Dim formBattle As New FormModeBattle()
+        formBattle.Show()
+        Me.Hide()
+    End Sub
 End Class

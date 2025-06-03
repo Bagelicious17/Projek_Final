@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormAwalBgt
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FormAwalBgt
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
@@ -38,7 +38,7 @@ Partial Class FormAwalBgt
         'FormAwalBgt
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.BackgroundImage = Global.Projek_Final.My.Resources.Resources.mainMenu
+        Me.BackgroundImage = Global.Projek_Final.My.Resources.Resources.WhatsApp_Image_2025_06_03_at_09_49_15_0c878d5c
         Me.ClientSize = New System.Drawing.Size(736, 502)
         Me.Controls.Add(Me.Label1)
         Me.Name = "FormAwalBgt"

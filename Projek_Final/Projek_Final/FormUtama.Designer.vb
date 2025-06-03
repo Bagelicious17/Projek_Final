@@ -423,7 +423,7 @@ Partial Class FormUtama
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.BackgroundImage = Global.Projek_Final.My.Resources.Resources.halUtama
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(762, 743)
+        Me.ClientSize = New System.Drawing.Size(767, 743)
         Me.Controls.Add(Me.btnQuit)
         Me.Controls.Add(Me.btnTestPath)
         Me.Controls.Add(Me.btnSave)

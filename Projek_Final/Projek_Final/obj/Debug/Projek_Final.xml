@@ -37,6 +37,11 @@ Projek_Final
   Looks up a localized string similar to .
 </summary>
 </member>
+<member name="P:Projek_Final.My.Resources.Resources.bgMerah">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Projek_Final.My.Resources.Resources.halUtama">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -63,6 +68,11 @@ Projek_Final
 </summary>
 </member>
 <member name="P:Projek_Final.My.Resources.Resources.WhatsApp_Image_2025_04_22_at_09_18_25_48109588">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Projek_Final.My.Resources.Resources.WhatsApp_Image_2025_06_03_at_09_49_15_0c878d5c">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

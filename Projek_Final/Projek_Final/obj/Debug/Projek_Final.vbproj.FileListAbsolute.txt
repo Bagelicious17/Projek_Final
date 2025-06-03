@@ -43,3 +43,19 @@ C:\Users\LENOVO\Source\Repos\Projek_Final\Projek_Final\obj\Debug\Projek_Final.vb
 C:\Users\LENOVO\Source\Repos\Projek_Final\Projek_Final\obj\Debug\Projek_Final.exe
 C:\Users\LENOVO\Source\Repos\Projek_Final\Projek_Final\obj\Debug\Projek_Final.xml
 C:\Users\LENOVO\Source\Repos\Projek_Final\Projek_Final\obj\Debug\Projek_Final.pdb
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.vbproj.AssemblyReference.cache
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.FormAwalBgt.resources
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.FormModeBattle.resources
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.FormUtama.resources
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.Form2.resources
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.FormAwal.resources
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.Resources.resources
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.vbproj.GenerateResource.cache
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.vbproj.CoreCompileInputs.cache
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.exe
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.xml
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\obj\Debug\Projek_Final.pdb
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\bin\Debug\Projek_Final.exe.config
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\bin\Debug\Projek_Final.exe
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\bin\Debug\Projek_Final.pdb
+D:\Kuliah\Sem4\Pemrograman Dekstop\Github Final\Projek_Final\Projek_Final\Projek_Final\bin\Debug\Projek_Final.xml

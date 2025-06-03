@@ -83,6 +83,12 @@
     <Compile Include="FormAwalBgt.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormModeBattle.Designer.vb">
+      <DependentUpon>FormModeBattle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormModeBattle.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormUtama.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
   <ItemGroup>
     <EmbeddedResource Include="FormAwalBgt.resx">
       <DependentUpon>FormAwalBgt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormModeBattle.resx">
+      <DependentUpon>FormModeBattle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUtama.resx">
       <DependentUpon>FormUtama.vb</DependentUpon>
@@ -179,6 +188,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mainMenu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bgMerah.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp Image 2025-06-03 at 09.49.15_0c878d5c.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

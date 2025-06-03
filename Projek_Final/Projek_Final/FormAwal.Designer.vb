@@ -38,6 +38,7 @@ Partial Class FormAwal
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnNewGame = New System.Windows.Forms.Button()
         Me.btnResume = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.gbPemain1.SuspendLayout()
         Me.gbPemain2.SuspendLayout()
         Me.gbPemain3.SuspendLayout()
@@ -182,21 +183,30 @@ Partial Class FormAwal
         '
         'btnNewGame
         '
-        Me.btnNewGame.Location = New System.Drawing.Point(405, 397)
+        Me.btnNewGame.Location = New System.Drawing.Point(438, 404)
         Me.btnNewGame.Name = "btnNewGame"
-        Me.btnNewGame.Size = New System.Drawing.Size(216, 50)
+        Me.btnNewGame.Size = New System.Drawing.Size(143, 41)
         Me.btnNewGame.TabIndex = 1
-        Me.btnNewGame.Text = "New Game"
+        Me.btnNewGame.Text = "Normal Mode"
         Me.btnNewGame.UseVisualStyleBackColor = True
         '
         'btnResume
         '
-        Me.btnResume.Location = New System.Drawing.Point(163, 397)
+        Me.btnResume.Location = New System.Drawing.Point(298, 404)
         Me.btnResume.Name = "btnResume"
-        Me.btnResume.Size = New System.Drawing.Size(236, 50)
+        Me.btnResume.Size = New System.Drawing.Size(134, 41)
         Me.btnResume.TabIndex = 1
         Me.btnResume.Text = "Resume Game"
         Me.btnResume.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(155, 404)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(137, 41)
+        Me.Button1.TabIndex = 5
+        Me.Button1.Text = "Battle Mode"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'FormAwal
         '
@@ -204,6 +214,7 @@ Partial Class FormAwal
         Me.BackColor = System.Drawing.Color.Gainsboro
         Me.BackgroundImage = Global.Projek_Final.My.Resources.Resources.WhatsApp_Image_2025_04_22_at_09_18_25_48109588
         Me.ClientSize = New System.Drawing.Size(711, 453)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnResume)
         Me.Controls.Add(Me.btnNewGame)
         Me.Controls.Add(Me.gbPemain4)
@@ -244,4 +255,5 @@ Partial Class FormAwal
     Friend WithEvents Label4 As Label
     Friend WithEvents btnNewGame As Button
     Friend WithEvents btnResume As Button
+    Friend WithEvents Button1 As Button
 End Class
