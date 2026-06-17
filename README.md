@@ -41,15 +41,6 @@ A fully functional multiplayer Ludo board game built with VB.NET and Windows For
 3. Make sure the Startup Project is set to `Projek_Final`.
 4. Press `F5` or click **Start** to build and run the game.
 
-## 📸 Screenshots
-
-*(You can place your screenshots here! Create a folder called `screenshots` and add them like this:)*
-
-```markdown
-![Main Menu](screenshots/main_menu.png)
-![Gameplay](screenshots/gameplay.png)
-```
-
 ## 📝 License
 
 This project was created as a final project. Feel free to explore, learn from, and modify the code!
